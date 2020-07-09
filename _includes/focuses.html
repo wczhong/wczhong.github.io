@@ -1,0 +1,9 @@
+{% if site.focuses %}
+<hr>
+<h5>FOCUSES</h5>
+<ul class="list-inline">
+  {% for forcus in site.focuses %}
+  <li><a href="{{forcus.href}}">{{forcus.title}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

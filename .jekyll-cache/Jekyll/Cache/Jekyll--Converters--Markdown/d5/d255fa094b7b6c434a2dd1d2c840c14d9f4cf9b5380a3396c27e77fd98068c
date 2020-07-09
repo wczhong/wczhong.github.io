@@ -1,0 +1,29 @@
+I"7<blockquote>
+  <p><a href="https://golang.org/pkg/sync/">library</a></p>
+</blockquote>
+
+<p>sync包提供了基本的同步操作，如互斥锁（mutex）。通常底层库的并发多采用Once或WaitGroup。高层的（业务层）同步更好的是通过channel和communication来完成。</p>
+
+<p>From the “Lambda calculus and programming languages” section of wikipedia page:</p>
+
+<blockquote>
+  <p>As pointed out by Peter Landin’s 1965 paper “A Correspondence between ALGOL 60 and Church’s Lambda-notation”</p>
+</blockquote>
+
+<p>I found this name quite familiar since I read his paper “The mechanical evaluation of expressions” before, in which he introduced the first abstract machine for functional programming language, namely <a href="https://en.wikipedia.org/wiki/SECD_machine">SECD machine</a>. This paper also define the term <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a> which becomes a prevalent notion in computer programming nowadays.</p>
+
+<p>Besides of that, his contributions also include:</p>
+
+<ul>
+  <li>on ALGO definition</li>
+  <li><a href="https://en.wikipedia.org/wiki/ISWIM">ISWIM</a> programming language</li>
+  <li><a href="https://en.wikipedia.org/wiki/Off-side_rule">off-side rule</a>, known as “indentation-based” syntax nowadays, popularized by Miranda, Haskell, Python, etc.</li>
+  <li>coin the term <a href="https://en.wikipedia.org/wiki/Syntactic_sugar">syntactic sugar</a></li>
+</ul>
+
+<p>He was much influenced by a study of McCarthy’s LISP and taught <a href="https://en.wikipedia.org/wiki/Tony_Hoare">Tony Hoare</a> ALGO with Peter Naur and Edsger W. Dijkstra. (Oh yes, definitely 4 more people to write).</p>
+
+<p>I have just download his old, influential paper “The next 700 programming languages”. 
+I am sure it will be an enjoyable read.</p>
+
+:ET

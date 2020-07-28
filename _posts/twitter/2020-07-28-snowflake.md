@@ -187,6 +187,7 @@ public class SnowflakeIdWorker {
 > 非原创
 
 > 待改进点：
-  - 将根据JAVA版本改造GO版本
-  - 待补充有优缺点
-  - 怎样利用snowflake生成有意义的订单号
+  - GO版本
+  - 优缺点
+  - 利用snowflake生成有意义的订单号
+  - snowflake快速生成唯一ID压力测试

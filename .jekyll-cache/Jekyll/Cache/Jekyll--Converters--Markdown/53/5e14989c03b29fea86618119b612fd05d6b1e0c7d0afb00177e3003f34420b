@@ -1,4 +1,4 @@
-I"�"<blockquote>
+I"�"<blockquote>
   <p><a href="https://www.cnblogs.com/relucent/p/4955340.html">原文链接</a></p>
 </blockquote>
 
@@ -323,12 +323,16 @@ public class SnowflakeIdWorker {
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <blockquote>
-  <p>PS: 非原创
-待改进点：</p>
+  <p>非原创</p>
+</blockquote>
+
+<blockquote>
+  <p>待改进点：</p>
   <ul>
-    <li>将根据JAVA版本改造GO版本</li>
-    <li>待补充有优缺点</li>
-    <li>怎样利用snowflake生成有意义的订单号</li>
+    <li>GO版本</li>
+    <li>优缺点</li>
+    <li>利用snowflake生成有意义的订单号</li>
+    <li>snowflake快速生成唯一ID压力测试</li>
   </ul>
 </blockquote>
 :ET

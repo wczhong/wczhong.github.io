@@ -8,18 +8,14 @@ tags:
   - JAVA
   - SnowFlake
 ---
-
-> [原文链接](https://www.cnblogs.com/relucent/p/4955340.html)
-
-> [twitter](https://github.com/twitter-archive/snowflake)
-
 ### 概述
 
 分布式系统中，有一些需要使用全局唯一ID的场景，这种时候为了防止ID冲突可以使用36位的UUID，但是UUID有一些缺点，首先他相对比较长，另外UUID一般是无序的。
 
 有些时候我们希望能使用一种简单一些的ID，并且希望ID能够按照时间有序生成。
 
-而twitter的snowflake解决了这种需求，最初Twitter把存储系统从MySQL迁移到Cassandra，因为Cassandra没有顺序ID生成机制，所以开发了这样一套全局唯一ID生成服务。
+而twitter的snowflake解决了这种需求，最初Twitter把存储系统从MySQL迁移到Cassandra，因为Cassandra没有顺序ID生成机制，所以开发了这样一套全局唯一ID生成服
+务。
 
 ### 结构
 
@@ -184,10 +180,41 @@ public class SnowflakeIdWorker {
 }
 ```
 
-> 非原创
-
-> 待改进点：
-  - GO版本
-  - 优缺点
+### 应用场景
   - 利用snowflake生成有意义的订单号
   - snowflake快速生成唯一ID压力测试
+  
+> 优点
+  - 生成速度快
+  - 时间有序性
+  - 在有效期内值唯一
+  - 适用于分布式部署
+
+> 缺点 [ref](https://cloud.tencent.com/developer/article/1074907)
+  - 依赖机器时钟，如果机器时钟回拨，会导致重复ID生成
+  - 在单机上是递增的，但是由于设计到分布式环境，每台机器上的时钟不可能完全同步，有时候会出现不是全局递增的情况（此缺点可以认为无所谓，一般分布式ID只要求趋势递增，并不会严格要求递增～90%的需求都只要求趋势递增）
+  - 必须保证配置的唯一性
+
+### 优化替代方案
+  （TODO）
+
+### 闰秒 [REF](https://baike.baidu.com/item/%E9%97%B0%E7%A7%92/696742?fr=aladdin)
+
+闰秒，是指为保持协调世界时接近于世界时时刻，由国际计量局统一规定在年底或年中（也可能在季末）对协调世界时增加或减少1秒的调整。由于地球自转的不均匀性和长期变慢性
+（主要由潮汐摩擦引起的），会使世界时（民用时）和原子时之间相差超过到±0.9秒时，就把协调世界时向前拨1秒（负闰秒，最后一分钟为59秒）或向后拨1秒（正闰秒，最后一分钟为61秒）； 闰秒一般加在公历年末或公历六月末。
+
+> PS: 闰秒时，可以休眠一秒钟或直接抛出异常
+
+### 异或 [REF](https://www.cnblogs.com/fuck1/p/5899402.html)
+
+异或也叫半加运算，其运算法则相当于不带进位的二进制加法：二进制下用1表示真，0表示假，则异或的运算法则为：0⊕0=0，1⊕0=1，0⊕1=1，1⊕1=0（同为0，异为1），这些法则与加法是相同的，只是不带进位，所以异或常被认作不进位加法。
+
+### 非原创
+> [原文链接](https://www.cnblogs.com/relucent/p/4955340.html)
+
+### 参考链接
+ -  [snowflake原理解析](https://www.cnblogs.com/hackingForest/p/12995088.html#fn1)
+ -  [twitter](https://github.com/twitter-archive/snowflake)
+ -  [闰秒](https://baike.baidu.com/item/%E9%97%B0%E7%A7%92/696742?fr=aladdin)
+ -  [从一次 Snowflake 异常说起](https://cloud.tencent.com/developer/article/1074907)
+ -  [深入理解按位异或运算符](https://www.cnblogs.com/fuck1/p/5899402.html)
